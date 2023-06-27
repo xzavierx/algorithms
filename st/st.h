@@ -1,6 +1,8 @@
 #include <cmath>
 #include <vector>
 #include <functional>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 template <typename T> class SparseTable {
@@ -26,6 +28,15 @@ template <typename T> class SparseTable {
             for (int i = 0; i + pj < len; ++i) {
                 ST[i][j] = op(ST[i][j - 1], ST[i + (1 << (j - 1))][j - 1]);
             }
+        }
+    }
+
+    void print() {
+        for (int i = 0; i < ST.size(); i++) {
+            for (int j = 0; j < ST[i].size(); j++) {
+                cout << std::setw(2) << ST[i][j] << " ";
+            }
+            cout << endl;
         }
     }
 
