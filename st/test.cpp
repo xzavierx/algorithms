@@ -7,4 +7,5 @@ TEST_CASE("find range correctly", "[Sparse Table]") {
     REQUIRE(st.query(1, 2) == 14);
     SparseTable<int> stt({1, 2, 3, 4, 5, 6});
     stt.print();
+    REQUIRE(stt.query(0, 5) == 6);
 }
